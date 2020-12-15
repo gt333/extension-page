@@ -32,7 +32,7 @@ function recursed(path: any, name: String): null | ASTNode {
 }
 
 function recConditionalExpression(pageNode: any, filePath: String) {
-  console.log("pageNode", pageNode);
+  console.log("filePath:", filePath);
   const { consequent, alternate } = pageNode;
   if (babelType.isArrayExpression(consequent)) {
     consequent.elements.push(babelType.stringLiteral(filePath));
@@ -68,7 +68,7 @@ export default (content: String, filePath: String): String => {
   // 根据路径获取 root
   const root: String = filePath.split("/")[0];
   const nodeNew: StringLiteral = babelType.stringLiteralTypeAnnotation(
-    filePath
+    filePath.replace(/.*?(\/.*)/, "$1").replace(/^\//, "")
   );
   traverse(AST, {
     enter(path: any, state: any) {

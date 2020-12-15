@@ -1,6 +1,6 @@
 export default (name: String) =>
   `import React from 'react';
-    import {View} from '@taro/component';
+    import {View} from '@tarojs/components';
 
     class ${name} extends React.Component{
 

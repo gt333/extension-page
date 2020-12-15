@@ -1,5 +1,4 @@
-export default<String>
-    `const config = {};
+export default <String>`let config = {};
     if(process.env.TARO_ENV==='weapp'){
         config = {
 
@@ -10,4 +9,4 @@ export default<String>
 
         }
     }
-    export default config`
+    export default config`;
